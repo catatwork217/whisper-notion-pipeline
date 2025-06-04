@@ -1,0 +1,38 @@
+
+@startuml WhisperToNotionPipeline
+
+skinparam backgroundColor #fdfdfd
+skinparam node {
+  BackgroundColor<<bash>> #e8f5e9
+  BackgroundColor<<whisper>> #e3f2fd
+  BackgroundColor<<python>> #fff3e0
+  BorderColor black
+}
+skinparam database {
+  BackgroundColor #fce4ec
+  BorderColor black
+}
+skinparam cloud {
+  BackgroundColor #ede7f6
+  BorderColor black
+}
+
+actor User #lightgray
+database "Audio Files" as Audio
+node "Bash Script (cron job)" as Bash <<bash>>
+node "Whisper CLI" as Whisper <<whisper>>
+node "Python Parser" as Python <<python>>
+database "Transcript + Metadata (JSON)" as JSON
+cloud "GPT API" as GPT
+cloud "Notion API" as Notion
+
+User -> Audio : Uploads audio
+Audio -> Bash : Triggers via cron job
+Bash -> Whisper : Runs Whisper CLI
+Whisper -> JSON : Saves transcript to JSON
+JSON -> Python : Reads + parses
+Python -> GPT : Sends content for summary
+GPT -> Python : Receives smart summary
+Python -> Notion : Pushes transcript + summary + metadata
+
+@enduml
