@@ -12,7 +12,7 @@ CLEAN_SCRIPT = os.path.expanduser("~/Whispersync/whispersync_panel/scripts/clean
 DIRTY_AUDIO = os.path.expanduser("~/Whispersync/whispersync_panel/dirty_audio")
 LOG_SCRIPT = os.path.expanduser("~/Whispersync/whispersync_panel/scripts/whisper_transcript_log.sh")
 TAG_KEYWORDS = [
-    "brain", "activity", "sensors", "region", "frequency", "scale", "deviation"]
+    "madness", "writing", "death", "music", "loss", "chapter", "prologue", "epilogue", "theme", "dream", "voice", "echo", "colombia", "adoption", "love", "gift", "abuse"]
 
 #-------------------Setup Directories-------------------
 os.makedirs(RAW_AUDIO_DIR, exist_ok=True)
