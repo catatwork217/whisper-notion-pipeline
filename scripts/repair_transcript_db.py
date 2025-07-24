@@ -7,7 +7,8 @@ from datetime import datetime
 TRANSCRIPT_DIR = os.path.expanduser("~/Whispersync/whispersync_panel/transcripts")
 DB_PATH = os.path.expanduser("~/Whispersync/whispersync_panel/whispersync.db")
 TAG_KEYWORDS = [
-   "madness", "writing", "death", "music", "loss", "chapter", "prologue", "epilogue", "theme", "dream", "voice", "echo", "colombia", "adoption", "love", "gift", "abuse"]
+    "madness", "writing", "death", "music", "loss", "chapter", "prologue", "epilogue",
+    "theme", "dream", "voice", "echo"]
 
 def get_existing_filenames(conn):
     cursor = conn.cursor()
