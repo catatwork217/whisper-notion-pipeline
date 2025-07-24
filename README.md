@@ -13,10 +13,10 @@ A fully automated local-to-cloud pipeline that converts audio into structured su
 | `clean-filenames.sh`             | Cleans audio file names for safety (pipeline v1–v2; standalone or utility)                          |
 | `whisper_transcript_log.sh`      | Logs transcription events with status, timestamp, and filename for auditability                     |
 | `watch_and_transcribe.py`        | Full pipeline (v3): cleans filenames, batch transcribes, extracts keywords, counts word length, logs, stores in SQLite, includes built-in DB repair utility |
-| `repair_db_for_transcripts.py`   | **Standalone** on-demand utility to repair or rebuild your transcript DB from existing transcript files (for bulk recovery, troubleshooting, or advanced workflows) |
+| `repair_transcript_db.py`   | **Standalone** on-demand utility to repair or rebuild your transcript DB from existing transcript files (for bulk recovery, troubleshooting, or advanced workflows) |
 
 > **Note:** The original bash scripts (`whisper-transcribe.sh`, `clean-filenames.sh`, `whisper_transcript_log.sh`) represent earlier iterations of this pipeline and are preserved for reference, reproducibility, and modular use.  
-> The current all-in-one workflow is **`watch_and_transcribe.py`**, while advanced users can run **`repair_db_for_transcripts.py`** to rebuild DB records on demand.
+> The current all-in-one workflow is **`watch_and_transcribe.py`**, while advanced users can run **`repair_transcript_db.py`** to rebuild DB records on demand.
 
 ---
 
@@ -42,7 +42,7 @@ A fully automated local-to-cloud pipeline that converts audio into structured su
 3. Run the main pipeline:  
    `python scripts/watch_and_transcribe.py`
 4. Review logs with `whisper_transcript_log.sh` as needed.
-5. **On-demand:** Run `python scripts/repair_db_for_transcripts.py` to bulk repair or restore DB entries for transcripts.
+5. **On-demand:** Run `python scripts/repair_transcript_db.py` to bulk repair or restore DB entries for transcripts.
 
 > **Note:** As of this release, all transcripts and metadata are stored locally in SQLite. **Notion and GPT integration are under active development.**
 
@@ -50,7 +50,7 @@ A fully automated local-to-cloud pipeline that converts audio into structured su
 
 ## 🆕 What’s New
 
-- **DB Repair:** Both integrated (in `watch_and_transcribe.py`) and standalone (`repair_db_for_transcripts.py`) ways to recover your transcript DB, making it easier to fix or sync after manual edits.
+- **DB Repair:** Both integrated (in `watch_and_transcribe.py`) and standalone (`repair_transcript_db.py`) ways to recover your transcript DB, making it easier to fix or sync after manual edits.
 - Preserved earlier scripts for reproducibility and educational purposes—see “Pipeline Evolution” below.
 
 ---
