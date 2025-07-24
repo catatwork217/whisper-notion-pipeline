@@ -1,0 +1,14 @@
+WEBVTT
+
+00:00.000 --> 00:14.200
+This is a test file to show what the resulting formats and file formats will be when running
+
+00:14.200 --> 00:24.600
+a transcribe function using the watch underscore and underscore transcribe.py script in the whisper
+
+00:24.600 --> 00:38.600
+dash to dash notion dash pipeline. The resulting files will be in the following formats VTT
+
+00:38.600 --> 00:53.600
+TXT, TSV, SRT and JSON formats. This is just a test.
+
