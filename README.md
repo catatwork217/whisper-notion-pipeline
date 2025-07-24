@@ -86,6 +86,8 @@ See [pipeline/AutomationPipeline.png](pipeline/AutomationPipeline.png)
 - TXT - Regular text file format for import or conversion to any word processing format needed.
 - TSV - Organizes the transcript into a tabular format for easy editing and continued work in spreadsheet or as a database export. 
 
+---
+
 ## 🚧 TODO / In Progress
 
 🛠️ The following enhancements are in progress:
