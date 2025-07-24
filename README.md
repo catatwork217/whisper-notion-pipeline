@@ -7,42 +7,64 @@ A fully automated local-to-cloud pipeline that converts audio into structured su
 
 ## 🧩 Script Overview
 
-| Script                        | Description                                                                              |
-|-------------------------------|------------------------------------------------------------------------------------------|
-| `whisper-transcribe.sh`       | Transcribes a single audio file using Whisper CLI and logs it                            |
-| `clean-filenames.sh`          | Cleans/sanitizes audio file names (for CLI safety and cross-platform compatibility)      |
-| `whisper_transcript_log.sh`   | Logs transcription events with status, timestamp, and filename for auditability          |
-| `watch_and_transcribe.py`     | Full Python workflow: batch cleans audio, triggers Whisper, tags, logs, and updates DB   |                   |
+| Script                          | Description                                                                                         |
+|----------------------------------|-----------------------------------------------------------------------------------------------------|
+| `whisper-transcribe.sh`          | Transcribes a single audio file using Whisper CLI (pipeline v1; standalone or building block)        |
+| `clean-filenames.sh`             | Cleans audio file names for safety (pipeline v1–v2; standalone or utility)                          |
+| `whisper_transcript_log.sh`      | Logs transcription events with status, timestamp, and filename for auditability                     |
+| `watch_and_transcribe.py`        | Full pipeline (v3): cleans filenames, batch transcribes, extracts keywords, counts word length, logs, stores in SQLite, includes built-in DB repair utility |
+| `repair_db_for_transcripts.py`   | **Standalone** on-demand utility to repair or rebuild your transcript DB from existing transcript files (for bulk recovery, troubleshooting, or advanced workflows) |
 
-#### As reviewed in [Tech & Tangents Ep.1](https://youtu.be/u_J2370AD6A?si=IFrg-7mquUNktkTD)
+> **Note:** The original bash scripts (`whisper-transcribe.sh`, `clean-filenames.sh`, `whisper_transcript_log.sh`) represent earlier iterations of this pipeline and are preserved for reference, reproducibility, and modular use.  
+> The current all-in-one workflow is **`watch_and_transcribe.py`**, while advanced users can run **`repair_db_for_transcripts.py`** to rebuild DB records on demand.
+
+---
+
+#### As reviewed in **[@techandtangents** Ep 1. https://youtu.be/u_J2370AD6A?si=esKll_jWLaKxCAnu](https://www.youtube.com/@techandtangents)**
 > See the demo walkthrough for a live, end-to-end look at these scripts in action, including filename cleaning and logging enhancements.
 
 ---
 
-## 🧠 Features
+## 🚀 Features
 
-- Converts audio to text using Whisper CLI
-- Stores transcript metadata and tags in a local SQLite database
-- Filename cleaning utility for safety and cross-platform workflows
-- Robust logging for audit and troubleshooting
-- Modular, extensible, and lightweight
-- *(Planned)*: GPT-powered summaries and Notion integration
+- Modular: use bash scripts individually or together for simple CLI workflows (pipeline v1/v2).
+- **Main pipeline:** Run `watch_and_transcribe.py` to clean filenames, batch transcribe, log, and store everything in a local SQLite database—**including integrated DB repair**.
+- **Advanced:** Use `repair_db_for_transcripts.py` anytime to rebuild/restore your database in bulk—especially useful after manual transcript edits or system migrations.
+- Robust logging for audit and troubleshooting.
+- Easy to use, lightweight, and extensible for future features (like Notion/GPT integration).
 
 ---
 
 ## 🏁 Usage
 
-1. Place your `.m4a` audio files in the `raw_audio/` directory.
-2. *(Optional but recommended)* Run `scripts/clean-filenames.sh` to ensure safe filenames.
-3. Run the pipeline:
-    - For full automation:  
-      `python scripts/watch_and_transcribe.py`
-    - For single files:  
-      `scripts/whisper-transcribe.sh yourfile.m4a`
-4. Review logs using `whisper_transcript_log.sh` for detailed audit trails.
-5. **(Coming soon):** Send transcripts to Notion using `scripts/parse_and_send.py`.
+1. Place your `.m4a` files in the `raw_audio/` directory.
+2. *(Optional but recommended)* Run `clean-filenames.sh` to sanitize filenames.
+3. Run the main pipeline:  
+   `python scripts/watch_and_transcribe.py`
+4. Review logs with `whisper_transcript_log.sh` as needed.
+5. **On-demand:** Run `python scripts/repair_db_for_transcripts.py` to bulk repair or restore DB entries for transcripts.
 
-> **Note:** As of this release, transcripts and metadata are stored locally in SQLite. Notion and GPT integration are under active development.
+> **Note:** As of this release, all transcripts and metadata are stored locally in SQLite. **Notion and GPT integration are under active development.**
+
+---
+
+## 🆕 What’s New
+
+- **DB Repair:** Both integrated (in `watch_and_transcribe.py`) and standalone (`repair_db_for_transcripts.py`) ways to recover your transcript DB, making it easier to fix or sync after manual edits.
+- Preserved earlier scripts for reproducibility and educational purposes—see “Pipeline Evolution” below.
+
+---
+
+## 🛤️ Pipeline Evolution
+
+- **v1:** Bash script workflow for simple, single-file and batch transcription.
+- **v2:** Logging, filename cleaning, modular CLI utilities.
+- **v3:** Python all-in-one pipeline with integrated DB repair and full metadata tracking.
+
+---
+
+**Demo’d in [Tech & Tangents Ep. 1](https://youtu.be/u_J2370AD6A?si=IFrg-7mquUNktkTD)**  
+*Next post and video: REST API integration with GPT & Notion!*
 
 ---
 
@@ -55,18 +77,9 @@ Also includes rendered PNG: `pipeline/WhisperToNotionPipeline.png`
 
 ## 🚧 TODO / In Progress
 
-The core pipeline infrastructure is complete and fully operational:
-- ✅ Bash automation for transcription and file handling
-- ✅ Transcription via Whisper CLI
-- ✅ File logging and naming management
-- ✅ GitHub-ready structure with script documentation
-- ✅ Metadata and tag storage in SQLite
-
 🛠️ The following enhancements are in progress:
 - 🔄 GPT-based summarization using OpenAI API
 - 🧠 Integration with Notion API for dynamic content ingestion
-- 🔐 Secure key handling and `.env` example file
-- 🧪 Add dry-run and error handling features to Python script
 
 Check back for v2 updates, or contribute via pull request if you'd like to help accelerate!
 
@@ -76,6 +89,7 @@ Check back for v2 updates, or contribute via pull request if you'd like to help 
 
 - No Notion export or GPT-based summarization yet (coming soon)
 - Only `.m4a` audio supported in current workflows
+- DB is SQLite. If you would like to integrate a different db, please fork and update the 'watch_and_transcribe.py' script.
 - All processing and storage is local (no cloud/S3 backup yet)
 
 ---
