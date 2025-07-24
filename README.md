@@ -37,12 +37,16 @@ A fully automated local-to-cloud pipeline that converts audio into structured su
 
 ## 🏁 Usage
 
-1. Place your `.m4a` files in the `raw_audio/` directory.
-2. *(Optional but recommended)* Run `clean-filenames.sh` to sanitize filenames.
-3. Run the main pipeline:  
-   `python scripts/watch_and_transcribe.py`
-4. Review logs with `whisper_transcript_log.sh` as needed.
-5. **On-demand:** Run `python scripts/repair_transcript_db.py` to bulk repair or restore DB entries for transcripts.
+1. From the terminal in your code editor (I use VS Code) make sure you are in the right dir.
+2. Enter "python watch_and_transcribe.py"
+3. clean-filenames.sh runs any existing files that need filenames updated. Script will ask you if you would like to transcribe another file. Either add the file ahead of time to 'dirty_audio/' or start the script and wait for it to ask you to add a file.
+4. Move or copy your `.m4a` files in the `dirty_audio/` directory using the terminal or file explorer.
+5. Return to terminal and hit [ENTER].
+6. Pipeline will run, automatically transcribing the audio file or files you added to the dirty_audio/ dir.
+7. Pipeline will messages to tell you what it is doing. Success or completion message is "Transcription complete and saved: [dir]." "Metadata written to db with tags []." "Your new database entry awaits your inspection!"
+8. When ready to exit you may enter 'N' when the system asks "Would you like to process another file? (y/n)"
+9. Exit message appears "See ya next time! Goodbye!"
+10. **On-demand:** Run `python scripts/repair_transcript_db.py` to bulk repair or restore DB entries for transcripts.
 
 > **Note:** As of this release, all transcripts and metadata are stored locally in SQLite. **Notion and GPT integration are under active development.**
 
@@ -70,10 +74,17 @@ A fully automated local-to-cloud pipeline that converts audio into structured su
 
 ## 🖼️ Pipeline Diagram
 
-See [pipeline/WhisperToNotionPipeline_colored.puml](pipeline/WhisperToNotionPipeline_colored.puml)  
-Also includes rendered PNG: `pipeline/WhisperToNotionPipeline.png`
+See [pipeline/AutomationPipeline.png](pipeline/AutomationPipeline.png) 
+**_Pipeline diagram includes reference to Notion and GPT, which are works-in-progress._**
 
 ---
+
+## Examples
+**Included in the [Examples/](Examples/) are sample files to show what the outputs will look like in all formats: .txt, .tsv, .vtt, .srt, json.**
+- JSON - for integration with REST APIs
+- SRT/VTT - Different accessibility captions file formats.
+- TXT - Regular text file format for import or conversion to any word processing format needed.
+- TSV - Organizes the transcript into a tabular format for easy editing and continued work in spreadsheet or as a database export. 
 
 ## 🚧 TODO / In Progress
 
