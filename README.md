@@ -20,7 +20,7 @@ A fully automated local-to-cloud pipeline that converts audio into structured su
 
 ---
 
-#### As reviewed in **[@techandtangents** Ep 1. [https://youtu.be/u_J2370AD6A?si=esKll_jWLaKxCAnu](https://www.youtube.com/@techandtangents)**
+#### As reviewed in **[@techandtangents** Ep 1. https://youtu.be/HoxtsIHHmmQ?si=NEa4mhs5l2UGaJ1X] at https://www.youtube.com/@techandtangents
 > See the demo walkthrough for a live, end-to-end look at these scripts in action, including filename cleaning and logging enhancements.
 
 ---
@@ -67,7 +67,7 @@ A fully automated local-to-cloud pipeline that converts audio into structured su
 
 ---
 
-**Demo’d in [Tech & Tangents Ep. 1]([https://youtu.be/u_J2370AD6A?si=IFrg-7mquUNktkTD](https://youtu.be/HoxtsIHHmmQ?si=Zw16X-_2YgxeA6cV))**  
+**Demo’d in [[**Tech & Tangents Ep. 1](https://youtu.be/HoxtsIHHmmQ?si=NEa4mhs5l2UGaJ1X**)]
 *Next post and video: REST API integration with GPT & Notion!*
 
 ---
