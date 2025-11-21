@@ -20,8 +20,7 @@ A fully automated local-to-cloud pipeline that converts audio into structured su
 
 ---
 
-#### As reviewed in **[@techandtangents** Ep 1. https://youtu.be/HoxtsIHHmmQ?si=NEa4mhs5l2UGaJ1X] at https://www.youtube.com/@techandtangents
-> See the demo walkthrough for a live, end-to-end look at these scripts in action, including filename cleaning and logging enhancements.
+#### Demo available at [https://www.cathrinmcdougall.com](https://www.cathrinmcdougall.com/ai-automation/whisper-pipeline)
 
 ---
 
@@ -67,15 +66,11 @@ A fully automated local-to-cloud pipeline that converts audio into structured su
 
 ---
 
-**Demo’d in [[**Tech & Tangents Ep. 1](https://youtu.be/HoxtsIHHmmQ?si=NEa4mhs5l2UGaJ1X**)]
-*Next post and video: REST API integration with GPT & Notion!*
-
 ---
 
 ## 🖼️ Pipeline Diagram
 
 See [pipeline/AutomationPipeline.png](pipeline/AutomationPipeline.png) 
-**_Pipeline diagram includes reference to Notion and GPT, which are works-in-progress._**
 
 ---
 
@@ -125,7 +120,7 @@ Licensed under the GNU General Public License v2.0. See [LICENSE](LICENSE).
 ## 👩‍💻 Author
 
 Cathrin McDougall  
-Certified Scrum Master & Product Owner | DevOps Learner | Creative Automation Builder  
-[LinkedIn](https://linkedin.com/in/cathringordonmcdougall) | [GitHub](https://github.com/catatwork217)
+Certified Scrum Master & Product Owner 
+[Prof Website](https://www.cathrinmcdougall.com/) | [GitHub](https://github.com/catatwork217)
 
 Inspired by a passion for storytelling, automation, and elegant systems thinking.
