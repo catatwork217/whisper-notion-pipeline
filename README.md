@@ -28,10 +28,11 @@ An open-source, low-code automated transcription pipeline designed to produce sp
 | `whisper_transcript_log.sh`      | Logs transcription events with status, timestamp, and filename for auditability                     |
 | `watch_and_transcribe.py`        | Full pipeline (v3): cleans filenames, batch transcribes, extracts keywords, counts word length, logs, stores in **PostgreSQL**, includes built-in DB repair utility |
 | `repair_transcript_db.py`        | **Standalone** on-demand utility to repair or rebuild your transcript DB from existing transcript files (for bulk recovery, troubleshooting, or advanced workflows) |
-| 'Transcribe_GH.py'                  | **Updated for use with postgreSQL & PgAdmin** Python script that enables User to save output to postgreSQL dB that may be managed via CLI or PgAdmin GUI. |
+| `Transcribe_GH.py`                  | **Updated for use with postgreSQL & PgAdmin** Python script that enables User to save output to postgreSQL dB that may be managed via CLI or PgAdmin GUI. |
 
 > **Note:** The original bash scripts (`whisper-transcribe.sh`, `clean-filenames.sh`, `whisper_transcript_log.sh`) represent earlier iterations of this pipeline and are preserved for reference, reproducibility, and modular use.
-> The current all-in-one workflow is **`watch_and_transcribe.py`**, while advanced users can run **`repair_transcript_db.py`** to rebuild DB records on demand.
+> **Next iteration:** `watch_and_transcribe.py` & `repair_transcript_db.py`
+> **Current iteration:** `Transcribe_GH.py` for use with postgreSQL, pgAdmin, and duplicate check.
 
 ---
 
