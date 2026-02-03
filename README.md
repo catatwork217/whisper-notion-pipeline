@@ -60,8 +60,10 @@ SELECT * FROM memoir_recordings ORDER BY word_count DESC;
 
 ---
 
-## 🖼️ Pipeline Diagram
-See [pipeline/AutomationPipeline.png](pipeline/AutomationPipeline.png)
+## 🖼️ Project Evolution
+**Updated**
+- Pipeline - Overview and value proposition, viewable at [[(https://www.cathrinmcdougall.com/workflow-optimization/transcription-pipeline)
+](https://www.cathrinmcdougall.com/transcription-pipeline)
 
 ---
 
@@ -75,25 +77,18 @@ Included in the [Examples/](Examples/) are sample files to show what the outputs
 ---
 
 ## 🚧 TODO / In Progress
-- 🔄 GPT-based summarization using OpenAI API
-- 🧠 Integration with Notion API for dynamic content ingestion
-- 🗄️ Backup/export to S3
+- Docker containerization
 
 ---
 
 ## ❗ Current Limitations
-- No Notion export or GPT-based summarization yet (coming soon).
-- Only `.m4a` audio supported in current workflows.
-- All processing and storage is local (no cloud/S3 backup yet).
+- Backend only
 
 ---
 
 ## 💬 Future Goals
-- Add voice command trigger.
-- Enable speaker diarization.
-- Add backup/export to S3.
-- Notion/GPT integration.
-
+- Docker containerization
+- GUI for non-technical User access
 ---
 
 ## 🤝 License
